@@ -1,0 +1,105 @@
+{% extends 'KodoZooBundle::layout.html.twig' %}
+
+{% block select %}
+    <select class="navbar-right" name="especes" onchange="showAnimaux(this.value)">
+        <option value="0">Choisissez une espèce</option>
+        <option value="1">Chat</option>
+        <option value="2">Chien</option>
+        <option value="3">Oiseau</option>
+        <option value="4">Loup</option>
+        <option value="all">Toutes les espèces</option>
+    </select>
+{% endblock %}
+
+{% block content %}
+        <div class="container">
+            <hr>
+
+            <br/>
+            <div class="row text-center">
+            {% if animaux|length != 0 %}
+                {% for animal in animaux %}
+                    <div class="col-md-4 col-sm-6 {{ animal.espece.id }}" >
+                        <div class="thumbnail" style="height: 550px">
+                            <img src="{{ asset('bundles/kodozoo/images/'~animal.photo|e) }}" alt="{{ animal.nom }}">
+                            <div class="caption">
+                                <h3>{{ animal.nom }}</h3>
+                                <div style="text-align: left">
+                                <b>Espece : </b>{{ animal.espece.denomination|capitalize }}<br/>
+                                {% if animal.genre == 'm' %}
+                                <b>Genre : </b> Mâle<br/>
+                                {% else %}
+                                <b>Genre : </b> Femelle<br/>
+                                {% endif %}
+                                <b>Date naissance : </b>{{ animal.datenaissance|date('d.m.Y') }}<br/>
+                                {% if not animal.datedeces == NULL %}
+                                    <b>Date décès : </b>{{ animal.datedeces|date('d.m.Y') }}<br/>
+                                {% endif %}
+                                <b>Alimentation : </b> {% for manger in animal.manger %}{{ manger.libelle|capitalize }}{% endfor %} <br/>
+                                <p><b>Description : </b>{{ animal.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            {% else %}
+                Aucun résultat
+            {% endif %}
+
+
+                <div id="resultats_recherche"></div>
+            <hr>
+    <script>
+        function showAnimaux(str) {
+            /*$('select[name="especes"]').change(function(){
+                // Je créer l'id du div qui va être affiché
+                var id = "ma_div_" + $(this).val();
+                // Je cache toutes les divs grâce à une classe qui va sélectionner le tout
+                $('div.mes_divs').hide();
+                // Et j'affiche seulement le Div que je souhaite
+                $('#'+id).show();
+            });*/
+        }
+            /*if (str == "0") {
+                $('.all').show();
+            } else if(str == "all"){
+                $('.all').show();
+            }else {
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    $('.all').hide();
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("resultats_recherche").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET","getanimaux.php?q="+str,true);
+                console.log("getanimaux.php?q="+str);
+                xmlhttp.send();
+            }*/
+
+
+            /*var nb_options = document.getElementById('select').options.length; //nbr
+//on les parcours tous pour les cacher
+            for(i=1;i<nb_options;i++){
+                var id=document.getElementById('select').options[i].value;
+                document.getElementById(id).style.visibility='hidden';
+            }
+
+            var selectValue = document.getElementById('select').options[document.getElementById('select').selectedIndex].value;
+            document.getElementById(selectValue).style.visibility='visible';*/
+
+
+    </script>
+{% endblock %}

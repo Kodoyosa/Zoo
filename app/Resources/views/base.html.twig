@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Zoo{% endblock %}</title>
+
+        {% stylesheets 'bundles/kodozoo/css/bootstrap.css' filter="cssrewrite"%}
+        <link type="text/css" rel="stylesheet" href="{{ asset_url }}" >
+        {% endstylesheets %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+        {% javascripts "@KodoZooBundle/Resources/public/js/jquery.js"
+                        "@KodoZooBundle/Resources/public/js/bootstrap.js"%}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% block footer %}{% endblock %}
+    </body>
+</html>

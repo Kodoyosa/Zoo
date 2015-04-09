@@ -1,0 +1,18 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container">
+    <form class="form-signin fos_user_resetting_reset" action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="post" >
+
+        <a href="{{ path('kodo_zoo_accueil') }}" class="navbar-right">Retour</a>
+        <h2 class="form-signin-heading">Changer de mot de passe</h2>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        {{ form_widget(form) }}
+
+        <input class="btn btn-lg btn-warning btn-block" type="submit" id="_submit" name="_submit" value="{{ 'resetting.reset.submit'|trans }}" />
+        <div class="checkbox">
+            <a href="{{ path('fos_user_security_login') }}">Se connecter</a><br/>
+
+        </div>
+    </form>
+</div>

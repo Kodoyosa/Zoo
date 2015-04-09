@@ -1,0 +1,44 @@
+{% extends 'KodoZooBundle:Admin:index.html.twig' %}
+
+{% block title %}{{ parent() }} des animaux{% endblock %}
+
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="sub-header">Les animaux</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Espèce</th>
+                    <th>Genre</th>
+                    <th>Né le</th>
+                    <th>Mort le</th>
+                    <th>Gestion</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for animal in animaux %}
+                    <tr>
+                        <td>{{ animal.nom }}</td>
+                        <td>{{ animal.espece.denomination }}</td>
+                        <td>{{ animal.genre }}</td>
+                        <td>{{ animal.datenaissance|date('d.m.Y') }}</td>
+                        {% if not animal.datedeces == NULL %}
+                        <td>{{ animal.datedeces|date('d.m.Y') }}
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                        <td><a href="{{ path('kodo_zoo_animaux_modifier', { 'id': animal.id}) }}"> Modifier</a> | <a href="{{ path('kodo_zoo_animaux_supprimer', { 'id': animal.id}) }}">Supprimer</a></td>
+                        </tr>
+                {% endfor %}
+                <tr>
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td><a href="{{ path('kodo_zoo_affectersoigneur') }}" class="btn btn-warning">Affecter un soigneur à un animal</a></td>
+                    <td><a href="{{ path('kodo_zoo_animaux_ajouter') }}" class="btn btn-success">Ajouter un animal</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

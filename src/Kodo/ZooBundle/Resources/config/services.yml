@@ -1,0 +1,4 @@
+services:
+#    kodo_zoo.example:
+#        class: Kodo\ZooBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

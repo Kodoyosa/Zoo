@@ -1,0 +1,27 @@
+{% extends 'KodoZooBundle:Admin:index.html.twig' %}
+
+{% block title %}{{ parent() }} des espèces{% endblock %}
+
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="sub-header">Les espèces</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Espèce</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for espece in especes %}
+                    <tr>
+                        <td>{{ espece.denomination }}</td>
+                        <td><a href="{{ path('kodo_zoo_especes_supprimer', {'id' : espece.id}) }}">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ path('kodo_zoo_especes_ajouter') }}" class="btn btn-warning">Ajouter une espèce</a><br/>
+        </div>
+    </div>
+{% endblock %}

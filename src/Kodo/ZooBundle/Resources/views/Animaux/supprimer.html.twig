@@ -1,0 +1,16 @@
+{% extends 'KodoZooBundle:Admin:index.html.twig' %}
+
+{% block title %}{{ parent() }} des animaux{% endblock %}
+
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="sub-header">Êtes-vous sur(e) de vouloir supprimer l'animal {{ animal.nom }} ?</h2>
+        <form action="{{ path('kodo_zoo_animaux_supprimer', {'id': animal.id}) }}" method="post">
+            <a href="{{ path('kodo_zoo_animaux_gestion') }}" class="btn btn-default">
+                Retour
+            </a>
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock %}

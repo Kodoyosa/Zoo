@@ -1,0 +1,13 @@
+{% extends 'KodoZooBundle:Admin:index.html.twig' %}
+
+{% block title %}{{ parent() }} des animaux{% endblock %}
+
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="sub-header">Validation</h2>
+        <p>Votre requete a été prise en compte.</p>
+        <a href="{{ path('kodo_zoo_utilisateurs_gestion') }}" class="btn btn-default">
+            Retour
+        </a>
+    </div>
+{% endblock %}

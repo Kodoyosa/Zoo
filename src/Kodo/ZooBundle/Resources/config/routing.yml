@@ -1,0 +1,92 @@
+kodo_zoo_accueil:
+    path:    /
+    defaults: { _controller: KodoZooBundle:Default:index }
+
+kodo_zoo_admin:
+    path:   /dashboard/admin
+    defaults: {_controller: KodoZooBundle:Admin:index}
+
+kodo_zoo_animaux_gestion:
+    path:   /dashboard/admin/animaux-gestion
+    defaults: {_controller: KodoZooBundle:Animaux:gestion}
+
+kodo_zoo_animaux_modifier:
+    path:   /dashboard/admin/animaux-modifier-{id}
+    defaults: {_controller: KodoZooBundle:Animaux:modifier}
+
+kodo_zoo_animaux_ajouter:
+    path:   /dashboard/admin/animaux-ajouter
+    defaults: {_controller: KodoZooBundle:Animaux:ajouter}
+
+kodo_zoo_animaux_supprimer:
+    path:   /dashboard/admin/animaux-supprimer-{id}
+    defaults: {_controller: KodoZooBundle:Animaux:supprimer}
+
+kodo_zoo_animaux_validation_action:
+    path:   /dashboard/admin/animaux-validation
+    defaults: {_controller: KodoZooBundle:Animaux:validation}
+
+kodo_zoo_utilisateurs_gestion:
+    path:   /dashboard/admin/utilisateurs-gestion
+    defaults: {_controller: KodoZooBundle:Admin:gestion}
+
+kodo_zoo_soigneur:
+    path:   /dashboard
+    defaults: {_controller: KodoZooBundle:Soigneur:index}
+
+kodo_zoo_animaux:
+    path:   /animaux
+    defaults: {_controller: KodoZooBundle:Animaux:index}
+
+kodo_zoo_animaux:
+    path:   /animaux/{page}
+    defaults: {_controller: KodoZooBundle:Animaux:index, page: 1}
+
+
+kodo_zoo_recherche:
+    path:   /animaux/recherche
+    defaults: {_controller: KodoZooBundle:Animaux:rechercheTraitement}
+
+kodo_zoo_gestion_espece:
+    path:   /dashboard/admin/especes
+    defaults: {_controller: KodoZooBundle:Espece:index}
+
+kodo_zoo_especes_ajouter:
+    path:   /dashboard/admin/especes-ajouter
+    defaults: {_controller: KodoZooBundle:Espece:ajouter}
+
+kodo_zoo_especes_supprimer:
+    path:   /dashboard/admin/especes-supprimer-{id}
+    defaults: {_controller: KodoZooBundle:Espece:supprimer}
+
+kodo_zoo_espece_validation_action:
+    path:   /dashboard/admin/especes-validation
+    defaults: {_controller: KodoZooBundle:Espece:validation}
+
+kodo_zoo_user_promotetosoigneur:
+    path:   /dashboard/admin/utilisateurs-gestion/promotion-{id}
+    defaults: {_controller: KodoZooBundle:Admin:promote}
+
+kodo_zoo_user_downgrade:
+    path:   /dashboard/admin/utilisateurs-gestion/downgrade-{id}
+    defaults: {_controller: KodoZooBundle:Admin:downgrade}
+
+kodo_zoo_user_delete:
+    path:   /dashboard/admin/utilisateurs-gestion/supprimer-{id}
+    defaults: {_controller: KodoZooBundle:Admin:supprimer}
+
+kodo_zoo_user_validation_action:
+    path:   /dashboard/admin/utilisateurs-gestion/validation
+    defaults: {_controller: KodoZooBundle:User:validation}
+
+kodo_zoo_gestion_occuper:
+    path:   /dashboard/admin/affecter-soigneur
+    defaults: {_controller: KodoZooBundle:Soccuper:index}
+
+kodo_zoo_affectersoigneur:
+    path:   /dashboard/admin/affecter-soigneur
+    defaults: {_controller: KodoZooBundle:Soccuper:affecterSoigneur}
+
+kodo_zoo_soccuper_validation:
+    path:   /dashboard/admin/affecter-soigneur/validation
+    defaults: {_controller: KodoZooBundle:Soccuper:validation}

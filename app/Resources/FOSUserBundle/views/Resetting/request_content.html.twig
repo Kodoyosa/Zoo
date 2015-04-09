@@ -1,0 +1,22 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container">
+    <form class="form-signin" action="{{ path('fos_user_resetting_send_email') }}" method="post" >
+
+        <a href="{{ path('kodo_zoo_accueil') }}" class="navbar-right">Retour</a>
+        <h2 class="form-signin-heading">Mot de passe perdu ?</h2>
+
+
+        <label for="username" class="sr-only">Pseudo</label>
+        {% if invalid_username is defined %}
+        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+            <input type="text" id="username" name="username" class="form-control" placeholder="{{ 'resetting.request.username'|trans }}" required="required">
+        {% endif %}
+        <input type="text" id="username" name="username" class="form-control" placeholder="{{ 'resetting.request.username'|trans }}" required="required">
+        <input class="btn btn-lg btn-warning btn-block" type="submit" id="_submit" name="_submit" value="{{ 'resetting.request.submit'|trans }}" />
+        <div class="checkbox">
+            <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a><br/>
+            <a href="{{ path('fos_user_security_login') }}" >Se connecter</a>
+        </div>
+    </form>
+</div>
